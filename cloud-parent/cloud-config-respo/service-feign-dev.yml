@@ -3,7 +3,7 @@ server:
 feign:
   hystrix:
     enabled: true
-cn
-  mastercom
-    cloud
+cn:
+  mastercom:
+    cloud:
       name: Test1
