@@ -5,8 +5,9 @@ spring:
     config:
       server:
         git:
-          uri:
-
+          uri: https://github.com/CrackedSoul/SpringCloudDemo
+          search-paths: cloud-parent/cloud-config-respo
+      label: master
 server:
   port: 8088
 eureka:
