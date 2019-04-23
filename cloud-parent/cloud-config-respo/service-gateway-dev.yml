@@ -1,0 +1,19 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.4.159:8761/eureka/
+server:
+  port: 8765
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api-a
+          uri: lb://service-ribbon
+          predicates:
+            - Path=/api-ribbon/**
+        - id: api-b
+            uri: lb://service-feign
+            predicates:
+              - Path=/api-feign/**
+
