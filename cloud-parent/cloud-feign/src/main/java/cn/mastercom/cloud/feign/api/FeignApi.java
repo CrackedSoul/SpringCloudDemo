@@ -14,12 +14,19 @@ public class FeignApi {
     @Value("${server.port}")
     String port;
 
+    @Value("${cn.mastercom.cloud.name}")
+    String mastercomName;
+
     @Autowired
     RibbonService ribbonService;
 
     @GetMapping("/interface")
     public String api(@RequestParam(value = "name", defaultValue = "forezp") String name){
         return "hi " + name + " ,i am from FeignApi,port:"+port ;
+    }
+    @GetMapping("/name")
+    public String apiName(@RequestParam(value = "name", defaultValue = "forezp") String name){
+        return "hi " + name + " ,i am "+mastercomName+" from FeignApi,port:"+port ;
     }
     @GetMapping("/ribbonInterface")
     public String apiFeign(@RequestParam(value = "name", defaultValue = "forezp") String name){
