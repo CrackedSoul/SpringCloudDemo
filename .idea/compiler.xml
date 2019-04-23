@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cloud-config-server" />
+        <module name="cloud-ribbon" />
+        <module name="cloud-feign" />
+        <module name="cloud-eureka-server" />
+        <module name="cloud-zuul" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cloud-config-server" target="1.8" />
+      <module name="cloud-eureka-server" target="1.8" />
+      <module name="cloud-feign" target="1.8" />
+      <module name="cloud-parent" target="1.8" />
+      <module name="cloud-ribbon" target="1.8" />
+      <module name="cloud-zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cloud-config-server" options="-parameters" />
+      <module name="cloud-eureka-server" options="-parameters" />
+      <module name="cloud-feign" options="-parameters" />
+      <module name="cloud-ribbon" options="-parameters" />
+      <module name="cloud-zuul" options="-parameters" />
+    </option>
+  </component>
+</project>

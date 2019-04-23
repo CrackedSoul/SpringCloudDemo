@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/cloud-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-parent/cloud-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-parent/cloud-ribbon/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-parent/cloud-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-parent/cloud-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/cloud-parent/cloud-config-server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
