@@ -49,4 +49,12 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>cloud-eureka-server</module>
+        <module>cloud-config-server</module>
+        <module>cloud-feign</module>
+        <module>cloud-ribbon</module>
+        <module>cloud-zuul</module>
+        <module>cloud-gateway</module>
+    </modules>
 </project>
