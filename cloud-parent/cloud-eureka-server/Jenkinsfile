@@ -1,5 +1,6 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent { docker 'maven:3.3.3'
+            customWorkspace ./cloud-parent/cloud-eureka-server}
     stages {
         stage('build') {
             steps {
