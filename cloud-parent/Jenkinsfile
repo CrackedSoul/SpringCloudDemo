@@ -1,7 +1,7 @@
 pipeline {
 	agent none
 	stages {
-		stage('build') {
+		stage('Package') {
 			agent {
 				docker {
 					image 'maven:3-alpine'
@@ -11,6 +11,18 @@ pipeline {
 			steps {
 				sh 'mvn --version'
 				sh 'cd cloud-parent && mvn clean package -Dmaven.test.skip=true'
+			}
+		}
+		stage('Parallel Stage') {
+			parallel {
+				stage('eureka-server') {
+					agent any
+					steps {
+						sh 'cd cloud-parent/cloud-eureka-server '
+						sh 'mv target/cloud-eureka-server-0.0.1-SNAPSHOT.jar docker/cloud-eureka-server.jar '
+						sh ' docker build -t cloud-eureka-server docker/'
+					}
+				}
 			}
 		}
 	}
