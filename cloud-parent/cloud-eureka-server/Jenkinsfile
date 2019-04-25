@@ -1,6 +1,10 @@
 pipeline {
-    agent { docker 'maven:3.3.3'
-            customWorkspace ./cloud-parent/cloud-eureka-server}
+    agent {
+        docker {
+                image 'maven:3-alpine'
+                customWorkspace ./cloud-parent/cloud-eureka-server
+                }
+           }
     stages {
         stage('build') {
             steps {
