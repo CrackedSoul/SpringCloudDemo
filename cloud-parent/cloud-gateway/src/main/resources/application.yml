@@ -1,7 +1,7 @@
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.4.159:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
 server:
   port: 8765
 spring:
@@ -9,16 +9,12 @@ spring:
     name: service-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: 163                     #网关路由到网易官网
           uri: http://www.163.com/
           predicates:
               - Path=/163/**
-#        - id: api-a
-#          uri: lb://SERVICE-RIBBON
-#          predicates:
-#            - Path=/API-RIBBON
-#        - id: api-b
-#          uri: lb://SERVICE-FEIGN
-#          predicates:
-#            - Path=/API-FEIGN
