@@ -18,3 +18,15 @@ spring:
           uri: http://www.163.com/
           predicates:
               - Path=/163/**
+        - id: feign                     #网关路由到网易官网
+          uri: lb://SERVICE-FEIGN
+          filters:
+              - StripPrefix=1
+          predicates:
+            - Path=/feign/**
+        - id: ribbon                     #网关路由到网易官网
+          uri: lb://SERVICE-RIBBON
+          filters:
+              - StripPrefix=1
+          predicates:
+              - Path=/ribbon/**
