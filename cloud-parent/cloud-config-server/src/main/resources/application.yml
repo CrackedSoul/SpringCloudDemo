@@ -10,7 +10,3 @@ spring:
       label: master
 server:
   port: 8088
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka:8761/eureka/
