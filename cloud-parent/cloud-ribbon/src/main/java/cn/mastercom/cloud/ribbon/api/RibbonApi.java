@@ -1,6 +1,8 @@
 package cn.mastercom.cloud.ribbon.api;
 
 import cn.mastercom.cloud.ribbon.service.RestService;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,18 +13,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class RibbonApi {
-    @Value("${server.port}")
-    String port;
 
     @Autowired
     RestService restService;
 
     @GetMapping("/interface")
-    public String api(@RequestParam(value = "name", defaultValue = "forezp") String name){
-        return "hi " + name + " ,i am from RibbonApi,port:"+port ;
+    public String api() throws UnknownHostException {
+        InetAddress inetAddress = InetAddress.getLocalHost();
+        return  "This is Ribbon From IP:"+inetAddress.getHostAddress()+" ,HostName:"+inetAddress.getHostName();
     }
     @GetMapping("/feignInterface")
     public String apiFeign(@RequestParam(value = "name", defaultValue = "forezp") String name){
-        return restService.feignServiceHi(name);
+        StringBuilder sb=new StringBuilder("This is Ribbon,Then use RestService call Feign Service:");
+        sb.append("\t Response From Feign:");
+        sb.append( restService.feignServiceHi(name));
+        return sb.toString();
     }
 }

@@ -46,52 +46,5 @@ pipeline {
 				sh 'cd cloud-parent/cloud-zuul && mv target/cloud-zuul-0.0.1-SNAPSHOT.jar docker/cloud-zuul.jar && docker build -t cloud-zuul docker/'
 			}
 		}
-
-
-		stage('Run Eureka Server') {
-			agent any
-			options {
-				retry(3)
-			}
-			steps {
-				sh 'docker run -d --rm -p 8761:8761 cloud-eureka-server'
-			}
-		}
-		stage('Run Config Server') {
-			agent any
-			options {
-				retry(3)
-			}
-			steps {
-				sh 'docker run -d --rm  -p 8088:8088 cloud-config-server'
-			}
-		}
-		stage('Run Feign') {
-			agent any
-			options {
-				retry(3)
-			}
-			steps {
-				sh 'docker run -d --rm  -p 8762:8762  cloud-feign'
-			}
-		}
-		stage('Run Ribbon Server') {
-			agent any
-			options {
-				retry(3)
-			}
-			steps {
-				sh 'docker run -d --rm -p 8763:8763  cloud-ribbon'
-			}
-		}
-		stage('Run Zuul Server') {
-			agent any
-			options {
-				retry(3)
-			}
-			steps {
-				sh 'docker run -d --rm -p 8764:8764  cloud-zuul'
-			}
-		}
 	}
 }
