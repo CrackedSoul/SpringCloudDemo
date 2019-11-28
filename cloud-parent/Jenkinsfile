@@ -14,36 +14,23 @@ pipeline {
 			}
 		}
 
-		stage('eureka-server') {
-			agent any
-			steps {
-				sh 'cd cloud-parent/cloud-eureka-server && mv target/cloud-eureka-server-0.0.1-SNAPSHOT.jar docker/cloud-eureka-server.jar && docker build -t cloud-eureka-server docker/'
-			}
-		}
-
 		stage('feign') {
 			agent any
 			steps {
-				sh 'cd cloud-parent/cloud-feign && mv target/cloud-feign-0.0.1-SNAPSHOT.jar docker/cloud-feign.jar && docker build -t cloud-feign docker/'
-			}
-		}
-		stage('config-server') {
-			agent any
-			steps {
-				sh 'cd cloud-parent/cloud-config-server && mv target/cloud-config-server-0.0.1-SNAPSHOT.jar docker/cloud-config-server.jar && docker build -t cloud-config-server docker/'
+				sh 'cd cloud-parent/cloud-feign && mv target/cloud-feign-0.0.1-SNAPSHOT.jar docker/cloud-feign.jar && docker build -t cloud-feign-$BRANCH_NAME docker/'
 			}
 		}
 
 		stage('ribbon') {
 			agent any
 			steps {
-				sh 'cd cloud-parent/cloud-ribbon && mv target/cloud-ribbon-0.0.1-SNAPSHOT.jar docker/cloud-ribbon.jar && docker build -t cloud-ribbon docker/'
+				sh 'cd cloud-parent/cloud-ribbon && mv target/cloud-ribbon-0.0.1-SNAPSHOT.jar docker/cloud-ribbon.jar && docker build -t cloud-ribbon-$BRANCH_NAME docker/'
 			}
 		}
 		stage('zuul') {
 			agent any
 			steps {
-				sh 'cd cloud-parent/cloud-zuul && mv target/cloud-zuul-0.0.1-SNAPSHOT.jar docker/cloud-zuul.jar && docker build -t cloud-zuul docker/'
+				sh 'cd cloud-parent/cloud-zuul && mv target/cloud-zuul-0.0.1-SNAPSHOT.jar docker/cloud-zuul.jar && docker build -t cloud-zuul-$BRANCH_NAME docker/'
 			}
 		}
 	}

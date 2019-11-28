@@ -2,13 +2,12 @@ spring:
   application:
     name: service-zuul
   cloud:
-    config:
-      label: master
-      profile: dev
+    nacos:
       discovery:
-        enabled: true
-        service-id: config-server
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://eureka:8761/eureka/
+        server-addr: 192.168.1.100:8848
+      config:
+        server-addr: 192.168.1.100:8848
+        file-extension: yml
+        prefix: service-zuul
+  profiles:
+    active: dev
