@@ -4,6 +4,7 @@ import cn.mastercom.cloud.feign.service.RibbonService;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,10 +17,19 @@ public class FeignApi {
     @Autowired
     RibbonService ribbonService;
 
+    @Value("${cn.mastercom.name:default}")
+    private String name;
+
     @GetMapping("/interface")
     public String api() throws UnknownHostException {
         InetAddress inetAddress = InetAddress.getLocalHost();
         return  "This is Feign From IP:"+inetAddress.getHostAddress()+" ,HostName:"+inetAddress.getHostName();
+    }
+
+    @GetMapping("/getname")
+    public String getName() throws UnknownHostException {
+        InetAddress inetAddress = InetAddress.getLocalHost();
+        return  "This is Feign From IP:"+inetAddress.getHostAddress()+" ,HostName:"+inetAddress.getHostName()+" ,Name:"+this.name;
     }
 
     @GetMapping("/ribbonInterface")

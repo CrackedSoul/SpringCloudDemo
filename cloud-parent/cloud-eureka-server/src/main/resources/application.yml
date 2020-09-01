@@ -13,3 +13,7 @@ eureka:
 spring:
   application:
     name: eurka-server
+  rabbitmq:
+    addresses: 192.168.1.100:5672
+    username: guest
+    password: guest
