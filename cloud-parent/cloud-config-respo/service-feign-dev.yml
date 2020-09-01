@@ -5,7 +5,7 @@ feign:
     enabled: true
 cn:
   mastercom:
-    name: Test2
+    name: Test3
 management:
   endpoints:
     web:
