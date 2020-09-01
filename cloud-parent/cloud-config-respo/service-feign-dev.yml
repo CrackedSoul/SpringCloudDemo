@@ -6,3 +6,17 @@ feign:
 cn:
   mastercom:
     name: Test1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  cloud:
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    addresses: 192.168.1.100:5672
+    username: guest
+    password: guest

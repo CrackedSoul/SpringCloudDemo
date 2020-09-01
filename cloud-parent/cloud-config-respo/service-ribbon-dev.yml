@@ -1,2 +1,5 @@
 server:
   port: 8763
+cn:
+  mastercom:
+    name: name1
