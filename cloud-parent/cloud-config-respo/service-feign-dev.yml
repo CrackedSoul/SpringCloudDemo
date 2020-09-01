@@ -5,5 +5,4 @@ feign:
     enabled: true
 cn:
   mastercom:
-    cloud:
-      name: Test1
+    name: Test1
