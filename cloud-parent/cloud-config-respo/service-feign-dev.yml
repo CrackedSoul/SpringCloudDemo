@@ -5,10 +5,6 @@ cn:
   mastercom:
     name: Test4
 spring:
-  cloud:
-    bus:
-      trace:
-        enabled: true
   rabbitmq:
     addresses: 192.168.1.100:5672
     username: guest
