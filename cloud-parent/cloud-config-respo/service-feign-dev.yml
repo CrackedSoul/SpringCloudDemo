@@ -3,7 +3,7 @@ feign:
     enabled: true
 cn:
   mastercom:
-    name: Test4
+    name: Test5
 spring:
   rabbitmq:
     addresses: 192.168.1.100:5672
