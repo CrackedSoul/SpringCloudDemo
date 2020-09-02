@@ -1,6 +1,5 @@
 server:
-  port: 8761
-
+  port: 80
 eureka:
   instance:
     hostname: eureka
@@ -8,8 +7,15 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+      defaultZone: http://${eureka.instance.hostname}/eureka/
 spring:
   application:
     name: eurka-server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
