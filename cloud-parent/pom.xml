@@ -56,6 +56,5 @@
         <module>cloud-ribbon</module>
         <module>cloud-zuul</module>
         <module>cloud-gateway</module>
-        <module>cloud-admin</module>
     </modules>
 </project>
